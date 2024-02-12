@@ -56,7 +56,6 @@ pm_buttons = [
     [
         InlineKeyboardButton(
             text="~ القناة .", url=config.SUPPORT_CHANNEL),
-        ),
         InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
     ],
 ]
