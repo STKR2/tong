@@ -37,27 +37,27 @@ buttons = InlineKeyboardMarkup(
                     InlineKeyboardButton(text="II", callback_data="pause_cb"),
                     InlineKeyboardButton(text="▢", callback_data="end_cb"),
                 ],[
-                    InlineKeyboardButton(text="✯ ᴄʟᴏsᴇ ✯", callback_data="close"),
+                    InlineKeyboardButton(text="- تنظيف .", callback_data="close"),
         ]
     ]
 )
 pm_buttons = [
     [
         InlineKeyboardButton(
-            text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+            text="",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         )
     ],
-    [InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="fallen_help")],
+    [InlineKeyboardButton(text="~ التحكم .", callback_data="fallen_help")],
     [
-        InlineKeyboardButton(text="❄ ᴄʜᴀɴɴᴇʟ ❄", url=config.SUPPORT_CHANNEL),
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="", url=config.SUPPORT_CHANNEL),
+        InlineKeyboardButton(text="", url=config.SUPPORT_CHAT),
     ],
     [
         InlineKeyboardButton(
-            text="☁️ sᴏᴜʀᴄᴇ ☁️", url="https://github.com/AnonymousX1025/FallenMusic"
+            text="~ القناة .", url=config.SUPPORT_CHANNEL),
         ),
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
     ],
 ]
 
@@ -65,19 +65,19 @@ pm_buttons = [
 gp_buttons = [
     [
         InlineKeyboardButton(
-            text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+            text="",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         )
     ],
     [
-        InlineKeyboardButton(text="❄ ᴄʜᴀɴɴᴇʟ ❄", url=config.SUPPORT_CHANNEL),
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="", url=config.SUPPORT_CHANNEL),
+        InlineKeyboardButton(text="", url=config.SUPPORT_CHAT),
     ],
     [
         InlineKeyboardButton(
-            text="☁️ sᴏᴜʀᴄᴇ ☁️", url="https://github.com/TheAnonymous2005/FallenMusic"
+            text="~ القناة .", url=config.SUPPORT_CHANNEL),
         ),
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="~ القناة .", user_id=config.OWNER_ID),
     ],
 ]
 
@@ -90,20 +90,11 @@ helpmenu = [
         )
     ],
     [
-        InlineKeyboardButton(text="sᴜᴅᴏ", callback_data="fallen_cb sudo"),
-        InlineKeyboardButton(text="ᴏᴡɴᴇʀ", callback_data="fallen_cb owner"),
+        InlineKeyboardButton(text="~ المطورين .", callback_data="fallen_cb sudo"),
+        InlineKeyboardButton(text="~ التحكم .", callback_data="fallen_cb owner"),
     ],
     [
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="fallen_home"),
-        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
+        InlineKeyboardButton(text="~ رجوع .", callback_data="fallen_home"),
     ],
 ]
 
-
-help_back = [
-    [InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=config.SUPPORT_CHAT)],
-    [
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="fallen_help"),
-        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
-    ],
-]
