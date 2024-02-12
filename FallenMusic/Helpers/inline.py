@@ -75,8 +75,7 @@ gp_buttons = [
     [
         InlineKeyboardButton(
             text="~ القناة .", url=config.SUPPORT_CHANNEL),
-        ),
-        InlineKeyboardButton(text="~ القناة .", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
     ],
 ]
 
