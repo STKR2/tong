@@ -46,10 +46,8 @@ pm_buttons = [
     [
         InlineKeyboardButton(text="~ التحكم .", callback_data="fallen_help"),
     ],
-    [
         InlineKeyboardButton(text="~ الفريق .", url=config.SUPPORT_CHAT),
     ],
-    [
         InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
     ],
 ]
@@ -59,7 +57,6 @@ gp_buttons = [
     [
         InlineKeyboardButton(text="~ الفريق .", url=config.SUPPORT_CHAT),
     ],
-    [
         InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
     ],
 ]
@@ -72,13 +69,10 @@ helpmenu = [
             callback_data="fallen_cb help",
         )
     ],
-    [
         InlineKeyboardButton(text="~ المطورين .", callback_data="fallen_cb owner"),
     ],
-    [
         InlineKeyboardButton(text="~ رجوع .", callback_data="fallen_home"),
     ],
-    [
         InlineKeyboardButton(text="~ امسح .", callback_data="close"),
     ],
 ]
