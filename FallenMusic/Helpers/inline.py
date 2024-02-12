@@ -44,20 +44,22 @@ buttons = InlineKeyboardMarkup(
 
 pm_buttons = [ 
     [
-        InlineKeyboardButton(text="~ التحكم .", callback_data="fallen_help"),
+        InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="fallen_help")],
+    [
+        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=config.SUPPORT_CHAT),
     ],
-        InlineKeyboardButton(text="~ الفريق .", url=config.SUPPORT_CHAT),
-    ],
-        InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
+    [
+        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", user_id=config.OWNER_ID),
     ],
 ]
 
 
 gp_buttons = [
     [
-        InlineKeyboardButton(text="~ الفريق .", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="❄ ᴄʜᴀɴɴᴇʟ ❄", url=config.SUPPORT_CHANNEL),
     ],
-        InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
+    [
+        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", user_id=config.OWNER_ID),
     ],
 ]
 
@@ -65,14 +67,25 @@ gp_buttons = [
 helpmenu = [
     [
         InlineKeyboardButton(
-            text="~ التحكم .",
+            text="ᴇᴠᴇʀʏᴏɴᴇ",
             callback_data="fallen_cb help",
         )
     ],
-        InlineKeyboardButton(text="~ المطورين .", callback_data="fallen_cb owner"),
+    [
+        InlineKeyboardButton(text="sᴜᴅᴏ", callback_data="fallen_cb sudo"),
+        InlineKeyboardButton(text="ᴏᴡɴᴇʀ", callback_data="fallen_cb owner"),
     ],
-        InlineKeyboardButton(text="~ رجوع .", callback_data="fallen_home"),
+    [
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="fallen_home"),
+        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
     ],
-        InlineKeyboardButton(text="~ امسح .", callback_data="close"),
+]
+
+
+help_back = [
+    [InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=config.SUPPORT_CHAT)],
+    [
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="fallen_help"),
+        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
     ],
 ]
