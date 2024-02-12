@@ -44,7 +44,8 @@ buttons = InlineKeyboardMarkup(
 
 pm_buttons = [ 
     [
-        InlineKeyboardButton(text="~ التحكم .", callback_data="fallen_help")],
+        InlineKeyboardButton(text="~ التحكم .", callback_data="fallen_help"),
+    ],
     [
         InlineKeyboardButton(text="~ الفريق .", url=config.SUPPORT_CHAT),
     ],
