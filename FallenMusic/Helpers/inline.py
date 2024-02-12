@@ -33,33 +33,33 @@ close_key = InlineKeyboardMarkup(
 buttons = InlineKeyboardMarkup(
     [
                 [
-                    InlineKeyboardButton(text="▷", callback_data="resume_cb"),
-                    InlineKeyboardButton(text="II", callback_data="pause_cb"),
-                    InlineKeyboardButton(text="▢", callback_data="end_cb"),
+                    InlineKeyboardButton(text="-› ▷", callback_data="resume_cb"),
+                    InlineKeyboardButton(text="-› II", callback_data="pause_cb"),
+                    InlineKeyboardButton(text="-› ▢", callback_data="end_cb"),
                 ],[
-                    InlineKeyboardButton(text="- تنظيف .", callback_data="close"),
+                    InlineKeyboardButton(text="-› تنظيف .", callback_data="close"),
         ]
     ]
 )
 
 pm_buttons = [ 
     [
-        InlineKeyboardButton(text="~ التحكم", callback_data="fallen_help")],
+        InlineKeyboardButton(text="-› التحكم", callback_data="fallen_help")],
     [
-        InlineKeyboardButton(text="~ القناة .", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="-› القناة .", url=config.SUPPORT_CHAT),
     ],
     [
-        InlineKeyboardButton(text="~ المنشئ .", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="-› المنشئ .", user_id=config.OWNER_ID),
     ],
 ]
 
 
 gp_buttons = [
     [
-        InlineKeyboardButton(text="~ القناة .", url=config.SUPPORT_CHANNEL),
+        InlineKeyboardButton(text="-› القناة .", url=config.SUPPORT_CHANNEL),
     ],
     [
-        InlineKeyboardButton(text="~ المنشى .", user_id=config.OWNER_ID),
+        InlineKeyboardButton(text="-› المنشى .", user_id=config.OWNER_ID),
     ],
 ]
 
@@ -67,24 +67,23 @@ gp_buttons = [
 helpmenu = [
     [
         InlineKeyboardButton(
-            text="~ التحكم .",
+            text="-› التحكم .",
             callback_data="fallen_cb help",
         )
     ],
     [
-        InlineKeyboardButton(text="~ المنشئين .", callback_data="fallen_cb sudo"),
-        InlineKeyboardButton(text="~ المطورين .", callback_data="fallen_cb owner"),
+        InlineKeyboardButton(text="-› المنشئين .", callback_data="fallen_cb sudo"),
     ],
     [
-        InlineKeyboardButton(text="~ امسح .", callback_data="close"),
+        InlineKeyboardButton(text="-› امسح .", callback_data="close"),
     ],
 ]
 
 
 help_back = [
-    [InlineKeyboardButton(text="~ الفريق .", url=config.SUPPORT_CHAT)],
+    [InlineKeyboardButton(text="-› الفريق .", url=config.SUPPORT_CHAT)],
     [
-        InlineKeyboardButton(text="~ ارجع .", callback_data="fallen_help"),
-        InlineKeyboardButton(text="~ امسح .", callback_data="close"),
+        InlineKeyboardButton(text="-› ارجع .", callback_data="fallen_help"),
+        InlineKeyboardButton(text="-› امسح .", callback_data="close"),
     ],
 ]
