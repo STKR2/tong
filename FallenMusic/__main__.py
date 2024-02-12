@@ -43,17 +43,17 @@ from FallenMusic.Modules import ALL_MODULES
 
 
 async def fallen_startup():
-    LOGGER.info("[•] Loading Modules...")
+    LOGGER.info("[•] يتم تشغيل السورس ...")
     for module in ALL_MODULES:
         importlib.import_module("FallenMusic.Modules." + module)
     LOGGER.info(f"[•] Loaded {len(ALL_MODULES)} Modules.")
 
-    LOGGER.info("[•] Refreshing Directories...")
+    LOGGER.info("[•] رفع البيانات...")
     if "downloads" not in os.listdir():
         os.mkdir("downloads")
     if "cache" not in os.listdir():
         os.mkdir("cache")
-    LOGGER.info("[•] Directories Refreshed.")
+    LOGGER.info("[•] تم التحديث .")
 
     try:
         await app.send_message(
