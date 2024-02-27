@@ -5,6 +5,7 @@ import time
 import requests
 from random import  choice, randint
 from pyrogram import Client, filters
+from FallenMusic import app
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 
