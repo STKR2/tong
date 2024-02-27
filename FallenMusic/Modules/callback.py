@@ -61,7 +61,7 @@ async def close_(_, CallbackQuery):
     if CallbackQuery.from_user.id != int(user_id):
         try:
             return await CallbackQuery.answer(
-                "» ɪᴛ'ʟʟ ʙᴇ ʙᴇᴛᴛᴇʀ ɪғ ʏᴏᴜ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs ʙᴀʙʏ.", show_alert=True
+                "- انت مستخدم مجهول .", show_alert=True
             )
         except:
             return
@@ -97,24 +97,24 @@ async def admin_cbs(_, query: CallbackQuery):
     if data == "resume_cb":
         if await is_streaming(query.message.chat.id):
             return await query.answer(
-                "ᴅɪᴅ ʏᴏᴜ ʀᴇᴍᴇᴍʙᴇʀ ᴛʜᴀᴛ ʏᴏᴜ ᴘᴀᴜsᴇᴅ ᴛʜᴇ sᴛʀᴇᴀᴍ ?", show_alert=True
+                "- لايوجد شي في التشغيل .", show_alert=True
             )
         await stream_on(query.message.chat.id)
         await pytgcalls.resume_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"➻ sᴛʀᴇᴀᴍ ʀᴇsᴜᴍᴇᴅ 💫\n│ \n└ʙʏ : {query.from_user.mention} 🥀",
+            text=f"➻ تم الاستمرار بنجاح \n\n~ بواسطة : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
     elif data == "pause_cb":
         if not await is_streaming(query.message.chat.id):
             return await query.answer(
-                "ᴅɪᴅ ʏᴏᴜ ʀᴇᴍᴇᴍʙᴇʀ ᴛʜᴀᴛ ʏᴏᴜ ʀᴇsᴜᴍᴇᴅ ᴛʜᴇ sᴛʀᴇᴀᴍ ?", show_alert=True
+                "- لايوجد شي في التشغيل ", show_alert=True
             )
         await stream_off(query.message.chat.id)
         await pytgcalls.pause_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"➻ sᴛʀᴇᴀᴍ ᴩᴀᴜsᴇᴅ 🥺\n│ \n└ʙʏ : {query.from_user.mention} 🥀",
+            text=f"➻ تم الايقاف بنجاح \n\n~ بواسطة : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
@@ -125,7 +125,7 @@ async def admin_cbs(_, query: CallbackQuery):
         except:
             pass
         await query.message.reply_text(
-            text=f"➻ sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ/sᴛᴏᴩᴩᴇᴅ ❄\n│ \n└ʙʏ : {query.from_user.mention} 🥀",
+            text=f"➻ تم إيقاف التشغيل \n\n~ بواسطة : {query.from_user.mention} ",
             reply_markup=close_key,
         )
         await query.message.delete()
@@ -137,7 +137,7 @@ async def admin_cbs(_, query: CallbackQuery):
                 await _clear_(query.message.chat.id)
                 await pytgcalls.leave_group_call(query.message.chat.id)
                 await query.message.reply_text(
-                    text=f"➻ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🥺\n│ \n└ʙʏ : {query.from_user.mention} 🥀\n\n**» ɴᴏ ᴍᴏʀᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs ɪɴ** {query.message.chat.title}, **ʟᴇᴀᴠɪɴɢ ᴠɪᴅᴇᴏᴄʜᴀᴛ.**",
+                    text=f"➻ تم التخطي بنجاح \n\n~ بواسطة : {query.from_user.mention} \n\n**~ لايوجد شي في قائمة التشغيل** {query.message.chat.title}, **تم المغادرة .**",
                     reply_markup=close_key,
                 )
                 return await query.message.delete()
@@ -165,12 +165,12 @@ async def admin_cbs(_, query: CallbackQuery):
 
             img = await gen_thumb(videoid, user_id)
             await query.edit_message_text(
-                text=f"➻ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🥺\n│ \n└ʙʏ : {query.from_user.mention} 🥀",
+                text=f"➻ تم التخطي \n\n~ بواسطة : {query.from_user.mention} ",
                 reply_markup=close_key,
             )
             return await query.message.reply_photo(
                 photo=img,
-                caption=f"**➻ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ**\n\n‣ **ᴛɪᴛʟᴇ :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n‣ **ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}` ᴍɪɴᴜᴛᴇs\n‣ **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {req_by}",
+                caption=f"**➻ بدء التشغيل**\n\n‣ **الإسم :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n‣ **الوقت :** `{duration}` ثانية\n‣ **طلب من :** {req_by}",
                 reply_markup=buttons,
             )
 
@@ -186,15 +186,15 @@ async def unban_ass(_, CallbackQuery):
             await app.unban_chat_member(int(chat_id), ASS_ID)
         except:
             return await CallbackQuery.answer(
-                "» ғᴀɪʟᴇᴅ ᴛᴏ ᴜɴʙᴀɴ ᴀssɪsᴛᴀɴᴛ.",
+                "- محظور .",
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
-            f"➻ {ASS_NAME} sᴜᴄᴄᴇssғᴜʟʟʏ ᴜɴʙᴀɴɴᴇᴅ ʙʏ {CallbackQuery.from_user.mention}.\n\nᴛʀʏ ᴘʟᴀʏɪɴɢ ɴᴏᴡ..."
+            f"➻ {ASS_NAME} تم رفع الحظر {CallbackQuery.from_user.mention}.\n\nسيتم التشغيل الان ."
         )
     else:
         return await CallbackQuery.answer(
-            "» ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴜɴʙᴀɴ ᴜsᴇʀs ɪɴ ᴛʜɪs ᴄʜᴀᴛ.",
+            "- حدث خطا .",
             show_alert=True,
         )
 
