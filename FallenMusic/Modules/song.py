@@ -26,19 +26,20 @@ import requests
 import yt_dlp
 from pyrogram import filters
 from pyrogram.enums import ChatType
+from FallenMusic.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtube_search import YoutubeSearch
 
 from FallenMusic import BOT_MENTION, BOT_USERNAME, LOGGER, app
 
 
-@app.on_message(filters.command(["song", "vsong", "video", "music"]))
+@app.on_message(command(["يوت", "تحميل", "تنزيل", "بحث"]))
 async def song(_, message: Message):
     try:
         await message.delete()
     except:
         pass
-    m = await message.reply_text("🔎")
+    m = await message.reply_text("- يتم البحث الان .")
 
     query = "".join(" " + str(i) for i in message.command[1:])
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
@@ -55,16 +56,16 @@ async def song(_, message: Message):
     except Exception as ex:
         LOGGER.error(ex)
         return await m.edit_text(
-            f"ғᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ᴛʀᴀᴄᴋ ғʀᴏᴍ ʏᴛ-ᴅʟ.\n\n**ʀᴇᴀsᴏɴ :** `{ex}`"
+            f"- فشل .\n\n**السبب :** `{ex}`"
         )
 
-    await m.edit_text("» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ sᴏɴɢ,\n\nᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...")
+    await m.edit_text("- تم الرفع انتضر قليلاً .")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"☁️ **ᴛɪᴛʟᴇ :** [{title[:23]}]({link})\n⏱️ **ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}`\n🥀 **ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ :** {BOT_MENTION}"
+        rep = f"**- الأسم :** [{title[:23]}]({link})\n**- الوقت :** `{duration}`\n**- بواسطة  :** {BOT_MENTION}"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -74,7 +75,7 @@ async def song(_, message: Message):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ʏᴏᴜᴛᴜʙᴇ",
+                            text="- يوتيوب .",
                             url=link,
                         )
                     ]
@@ -91,14 +92,14 @@ async def song(_, message: Message):
             )
             if message.chat.type != ChatType.PRIVATE:
                 await message.reply_text(
-                    "ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴘᴍ, sᴇɴᴛ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ sᴏɴɢ ᴛʜᴇʀᴇ."
+                    "- لايوجد نتائج للبحث ."
                 )
         except:
             start_butt = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="ᴄʟɪᴄᴋ ʜᴇʀᴇ",
+                            text="- اضغط هنا .",
                             url=f"https://t.me/{BOT_USERNAME}?start",
                         )
                     ]
