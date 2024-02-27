@@ -31,12 +31,13 @@ async def maker(client: Client, message: Message):
             ]
         ),
     )
+
+
 @app.on_message(
     command(["جاك","البوت","بوت"])
     & filters.group)
 def greet_user(client, message):
-    if message.text.lower() == "بوت":
-        client.send_message(
-            chat_id=message.chat.id,
-            text="مرحبًا! كيف يمكنني مساعدتك اليوم؟"
-        )
+    client.send_message(
+        chat_id=message.chat.id,
+        text="مرحبًا! كيف يمكنني مساعدتك اليوم؟"
+    )
