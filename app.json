@@ -1,7 +1,7 @@
 {
-    "name": "ғᴀʟʟᴇɴ ダ ᴍᴜsɪᴄ",
-    "description": "A VC Player Bot for telegram videochats, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://te.legra.ph/file/6f99c49bdb4679acad717.jpg",
+    "name": "فريدوم صوتي",
+    "description": "- السورس اخر اصدار .",
+    "logo": "https://graph.org/file/ce800ecf11126af579375.jpg",
     "keywords": [
     "python3",
     "telegram",
@@ -12,38 +12,38 @@
     ],
     "env": {
       "API_ID": {
-        "description": "Get this value from https://my.telegram.org",
+        "description": "- اكتب ايبي ايدي .",
         "value": "",
         "required": true
       },
       "API_HASH": {
-        "description": "Get this value from https://my.telegram.org",
+        "description": "- اكتب ايبي هاش .",
         "value": "",
         "required": true
       },
       "BOT_TOKEN": {
-        "description": "A Bot's token from Botfather",
+        "description": "- اكتب توكن البوت",
         "value": "",
         "required": true
       },
       "OWNER_ID": {
-        "description": "Fill your user id here. (Must be integer)",
-        "value": "1356469075",
+        "description": "- اكتب ايدي المالك .",
+        "value": "1854384004",
         "required": true
       },
       "SESSION": {
-        "description": "A pyrogram v2 string session from @StringFatherBot",
+        "description": "- كود بايروجرام .",
         "value": "",
         "required": true
       },
       "SUDO_USERS": {
-        "description": "The user id(s) of user(s) whom you would like to add as a sudo. Multiple values shall be seperated with a space.",
+        "description": "- ايدي المطور .",
         "value": "",
         "required": true
       },
       "SUPPORT_CHAT": {
-        "description": "Link of your telegram support group. (Must pe public)",
-        "value": "https://t.me/DevilsHeavenMF",
+        "description": "- قناة المطور .",
+        "value": "https://t.me/xl444",
         "required": false
       }
     },
