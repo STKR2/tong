@@ -22,12 +22,12 @@
 
 from pyrogram import filters
 from pyrogram.types import Message
-
+from FallenMusic.filters import command
 from config import OWNER_ID
 from FallenMusic import SUDOERS, app
 
 
-@app.on_message(filters.command(["addsudo"]) & filters.user(OWNER_ID))
+@app.on_message(command(["رفع مطور"]) & filters.user(OWNER_ID))
 async def sudoadd(_, message: Message):
     try:
         await message.delete()
@@ -36,34 +36,34 @@ async def sudoadd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             return await message.reply_text(
-                "» ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ ᴜsᴇʀɴᴀᴍᴇ/ᴜsᴇʀ ɪᴅ."
+                "- قم بالرد بالأيدي او اليوزر ."
             )
         user = message.text.split(None, 1)[1]
         if "@" in user:
             user = user.replace("@", "")
         user = await app.get_users(user)
         if int(user.id) in SUDOERS:
-            return await message.reply_text(f"» {user.mention} ɪs ᴀʟʀᴇᴀᴅʏ ᴀ sᴜᴅᴏ ᴜsᴇʀ.")
+            return await message.reply_text(f" {user.mention} تم رفعة بالفعل .")
         try:
             SUDOERS.add(int(user.id))
-            await message.reply_text(f"ᴀᴅᴅᴇᴅ {user.mention} ɪɴ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ.")
+            await message.reply_text(f"- تم رفع {user.mention} المطورين بنجاح.")
         except:
-            return await message.reply_text("ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴅᴅ ᴜsᴇʀ ɪɴ sᴜᴅᴏᴇʀs.")
+            return await message.reply_text("- لايوجد مطورين ..")
 
     if message.reply_to_message.from_user.id in SUDOERS:
         return await message.reply_text(
-            f"» {message.reply_to_message.from_user.mention} ɪs ᴀʟʀᴇᴀᴅʏ ᴀ sᴜᴅᴏ ᴜsᴇʀ."
+            f"» {message.reply_to_message.from_user.mention} تم رفعة بالفعل ."
         )
     try:
         SUDOERS.add(message.reply_to_message.from_user.id)
         await message.reply_text(
-            f"ᴀᴅᴅᴇᴅ {message.reply_to_message.from_user.mention} ɪɴ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
+            f"تم {message.reply_to_message.from_user.mention} قائمة المطورين ."
         )
     except:
-        return await message.reply_text("ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴅᴅ ᴜsᴇʀ ɪɴ sᴜᴅᴏᴇʀs.")
+        return await message.reply_text("- لايوجد مطورين .")
 
 
-@app.on_message(filters.command(["delsudo", "rmsudo"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["تك", "rmsudo"]) & filters.user(OWNER_ID))
 async def sudodel(_, message: Message):
     try:
         await message.delete()
@@ -72,7 +72,7 @@ async def sudodel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             return await message.reply_text(
-                "» ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ ᴜsᴇʀɴᴀᴍᴇ/ᴜsᴇʀ ɪᴅ."
+                "- بالرد على أيدي المستخدم او يوزرة ."
             )
         user = message.text.split(None, 1)[1]
         if "@" in user:
@@ -80,34 +80,34 @@ async def sudodel(_, message: Message):
         user = await app.get_users(user)
         if int(user.id) not in SUDOERS:
             return await message.reply_text(
-                f"» {user.mention} ɪs ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
+                f" {user.mention} لايوجد مطورين ."
             )
         try:
             SUDOERS.remove(int(user.id))
             return await message.reply_text(
-                f"» ʀᴇᴍᴏᴠᴇᴅ {user.mention} ғʀᴏᴍ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
+                f"» تم تنزيل {user.mention} من قائمة المطورين ."
             )
         except:
-            return await message.reply_text(f"ғᴀɪʟᴇᴅ ᴛᴏ ʀᴇᴍᴏᴠᴇ ᴜsᴇʀ ғʀᴏᴍ sᴜᴅᴏᴇʀs.")
+            return await message.reply_text(f"- لم يتم رفعة في قائمة المطورين .")
     else:
         user_id = message.reply_to_message.from_user.id
         if int(user_id) not in SUDOERS:
             return await message.reply_text(
-                f"» {message.reply_to_message.from_user.mention} ɪs ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
+                f"» {message.reply_to_message.from_user.mention} - لايوجد مطورين ."
             )
         try:
             SUDOERS.remove(int(user_id))
             return await message.reply_text(
-                f"» ʀᴇᴍᴏᴠᴇᴅ {message.reply_to_message.from_user.mention} ғʀᴏᴍ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ."
+                f"» تم {message.reply_to_message.from_user.mention} من قائمة المطورين."
             )
         except:
-            return await message.reply_text(f"ғᴀɪʟᴇᴅ ᴛᴏ ʀᴇᴍᴏᴠᴇ ᴜsᴇʀ ғʀᴏᴍ sᴜᴅᴏᴇʀs.")
+            return await message.reply_text(f"- تم تنزيلة بالفعل .")
 
 
-@app.on_message(filters.command(["sudolist", "sudoers", "sudo"]))
+@app.on_message(command(["المطورين", "sudoers", "sudo"]))
 async def sudoers_list(_, message: Message):
-    hehe = await message.reply_text("» ɢᴇᴛᴛɪɴɢ sᴜᴅᴏ ᴜsᴇʀs ʟɪsᴛ...")
-    text = "<u>🥀 **ᴏᴡɴᴇʀ :**</u>\n"
+    hehe = await message.reply_text("- انتظر ")
+    text = "<u>~**المالك :**</u>\n"
     count = 0
     user = await app.get_users(OWNER_ID)
     user = user.first_name if not user.mention else user.mention
@@ -121,12 +121,12 @@ async def sudoers_list(_, message: Message):
                 user = user.first_name if not user.mention else user.mention
                 if smex == 0:
                     smex += 1
-                    text += "\n<u>✨ **sᴜᴅᴏᴇʀs :**</u>\n"
+                    text += "\n<u>~ **المطورين :**</u>\n"
                 count += 1
                 text += f"{count}➤ {user}\n"
             except Exception:
                 continue
     if not text:
-        await message.reply_text("» ɴᴏ sᴜᴅᴏ ᴜsᴇʀs ғᴏᴜɴᴅ.")
+        await message.reply_text("- لايوجد مطورين .")
     else:
         await hehe.edit_text(text)
