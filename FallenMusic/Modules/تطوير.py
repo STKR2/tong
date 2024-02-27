@@ -22,22 +22,14 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "- مطور السورس .", url=f"https://t.me/T_5_G"),
+                        "- مطور السورس .", url=f"https://t.me/rr8r9"),
                 ],
                 [
                    InlineKeyboardButton(
-                        "- قناة المطور ", url=f"https://t.me/VVV5P"),
+                        "- قناة المطور ", url=f"https://t.me/xl444"),
                 ],       
             ]
         ),
     )
 
 
-@app.on_message(
-    command(["جاك","البوت","بوت"])
-    & filters.group)
-def greet_user(client, message):
-    client.send_message(
-        chat_id=message.chat.id,
-        text="مرحبًا! كيف يمكنني مساعدتك اليوم؟"
-    )
