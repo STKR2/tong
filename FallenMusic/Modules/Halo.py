@@ -6,7 +6,7 @@ import requests
 from random import  choice, randint
 from pyrogram import Client, filters
 from FallenMusic import app
-from FallenMusic import command
+from FallenMusic.Helpers import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 
