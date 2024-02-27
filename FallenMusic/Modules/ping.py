@@ -26,7 +26,7 @@ from datetime import datetime
 import psutil
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
+from FallenMusic.filters import command
 import config
 from FallenMusic import BOT_NAME, StartTime, app
 from FallenMusic.Helpers import get_readable_time
