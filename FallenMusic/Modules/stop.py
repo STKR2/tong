@@ -24,10 +24,11 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from FallenMusic import app, pytgcalls
+from FallenMusic.filters import command
 from FallenMusic.Helpers import _clear_, admin_check, close_key
 
 
-@app.on_message(filters.command(["stop", "end"]) & filters.group)
+@app.on_message(command(["انهاء", "ايقاف"]) & filters.group)
 @admin_check
 async def stop_str(_, message: Message):
     try:
@@ -41,6 +42,6 @@ async def stop_str(_, message: Message):
         pass
 
     return await message.reply_text(
-        text=f"➻ **sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ/sᴛᴏᴩᴩᴇᴅ** ❄\n│ \n└ʙʏ : {message.from_user.mention} 🥀",
+        text=f"➻ تم الايقاف بنجاح** \n\n~ بواسطة : {message.from_user.mention} ",
         reply_markup=close_key,
     )
