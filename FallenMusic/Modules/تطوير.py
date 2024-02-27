@@ -7,7 +7,7 @@ from random import  choice, randint
 from pyrogram import Client, filters
 from FallenMusic.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from FallenMusic import , app)
+from FallenMusic import app
 
 
 @app.on_message(
