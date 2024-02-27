@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 from .active import *
+from .command import *
 from .admins import *
 from .clear import _clear_
 from .dossier import *
