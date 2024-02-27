@@ -38,7 +38,7 @@ async def fallen_st(_, message: Message):
         if len(message.text.split()) > 1:
             cmd = message.text.split(None, 1)[1]
             if cmd[0:3] == "inf":
-                m = await message.reply_text("🔎")
+                m = await message.reply_text("انتظر ")
                 query = (str(cmd)).replace("info_", "", 1)
                 query = f"https://www.youtube.com/watch?v={query}"
                 results = VideosSearch(query, limit=1)
@@ -51,24 +51,13 @@ async def fallen_st(_, message: Message):
                     channel = result["channel"]["name"]
                     link = result["link"]
                     published = result["publishedTime"]
-                searched_text = f"""
-➻ **ᴛʀᴀᴄᴋ ɪɴғᴏʀɴᴀᴛɪᴏɴ** 
-
-📌 **ᴛɪᴛʟᴇ :** {title}
-
-⏳ **ᴅᴜʀᴀᴛɪᴏɴ :** {duration} ᴍɪɴᴜᴛᴇs
-👀 **ᴠɪᴇᴡs :** `{views}`
-⏰ **ᴩᴜʙʟɪsʜᴇᴅ ᴏɴ :** {published}
-🔗 **ʟɪɴᴋ :** [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})
-🎥 **ᴄʜᴀɴɴᴇʟ :** [{channel}]({channellink})
-
-💖 sᴇᴀʀᴄʜ ᴩᴏᴡᴇʀᴇᴅ ʙʏ {BOT_NAME}"""
+                searched_text = f"""➻ **هذا المعلومات ** ~ بواسطة البوت {BOT_NAME}"""
                 key = InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text="ʏᴏᴜᴛᴜʙᴇ", url=link),
+                            InlineKeyboardButton(text="الرابط", url=link),
                             InlineKeyboardButton(
-                                text="sᴜᴩᴩᴏʀᴛ", url=config.SUPPORT_CHAT
+                                text="الدعم", url=config.SUPPORT_CHAT
                             ),
                         ],
                     ]
