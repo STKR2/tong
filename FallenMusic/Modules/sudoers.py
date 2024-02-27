@@ -63,7 +63,7 @@ async def sudoadd(_, message: Message):
         return await message.reply_text("- لايوجد مطورين .")
 
 
-@app.on_message(filters.command(["تك", "rmsudo"]) & filters.user(OWNER_ID))
+@app.on_message(command(["تك", "rmsudo"]) & filters.user(OWNER_ID))
 async def sudodel(_, message: Message):
     try:
         await message.delete()
