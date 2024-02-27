@@ -92,7 +92,7 @@ async def song(_, message: Message):
             )
             if message.chat.type != ChatType.PRIVATE:
                 await message.reply_text(
-                    "- لايوجد نتائج للبحث ."
+                    "- تم ارسال الملف الصوتي لك في الخاص"
                 )
         except:
             start_butt = InlineKeyboardMarkup(
